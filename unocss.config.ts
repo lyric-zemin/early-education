@@ -11,7 +11,7 @@ import {
 export default defineConfig({
   theme: {
     colors: {
-      primary: 'var(--el-color-primary)',
+
     },
   },
   shortcuts: [

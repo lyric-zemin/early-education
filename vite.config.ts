@@ -4,10 +4,8 @@ import Vue from '@vitejs/plugin-vue'
 import Pages from 'unplugin-vue-router/vite'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
-import VueDevTools from 'vite-plugin-vue-devtools'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 export default defineConfig({
@@ -15,13 +13,6 @@ export default defineConfig({
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
       '#/': `${path.resolve(__dirname, 'src')}/types/`,
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@use "~/styles/_element.scss" as *;',
-      },
     },
   },
   plugins: [
@@ -40,20 +31,13 @@ export default defineConfig({
       dirs: ['./src/composables'],
       dts: 'src/types/auto-imports.d.ts',
       vueTemplate: true,
-      resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
     }),
 
     // https://github.com/antfu/vite-plugin-components
-    Components({
-      dts: 'src/types/components.d.ts',
-      resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
-    }),
+    Components({ dts: 'src/types/components.d.ts' }),
 
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
     Unocss(),
-
-    // https://github.com/webfansplz/vite-plugin-vue-devtools
-    VueDevTools(),
   ],
 })

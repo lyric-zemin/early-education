@@ -4,10 +4,6 @@ defineOptions({ name: 'DefaultLayout' })
 
 <template>
   <main flex="~ col" h-screen overflow-hidden>
-    <div text-center>
-      [default layout]
-    </div>
-
     <router-view v-slot="{ Component }">
       <transition name="main" mode="out-in" appear>
         <component :is="Component" />

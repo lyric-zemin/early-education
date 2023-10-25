@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <el-card class="m-4 flex-1" shadow="hover" :body-style="{ height: '100%' }">
+  <div h-full flex-center flex="~ col gap-2">
     <slot />
-  </el-card>
+  </div>
 </template>

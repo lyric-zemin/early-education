@@ -1,32 +1,14 @@
 <script setup lang="ts">
-
+definePage({ meta: { title: '首页' } })
 </script>
 
 <template>
-  <PageMain>
-    Index Page
-
-    <el-row class="mt-4">
-      <el-button>Default</el-button>
-      <el-button type="primary">
-        Primary
-      </el-button>
-      <el-button type="success">
-        Success
-      </el-button>
-      <el-button type="info">
-        Info
-      </el-button>
-      <el-button type="warning">
-        Warning
-      </el-button>
-      <el-button type="danger">
-        Danger
-      </el-button>
-    </el-row>
-  </PageMain>
+  <div h-full flex-center flex="~ col gap-2">
+    <RouterLink class="border border-rounded px-4 py-1" to="/card">
+      卡片1
+    </RouterLink>
+    <RouterLink class="border border-rounded px-4 py-1" to="/card">
+      卡片2
+    </RouterLink>
+  </div>
 </template>
-
-<route lang="yaml">
-
-</route>

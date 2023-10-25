@@ -1,9 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    path { fill: #222; }
-    @media (prefers-color-scheme: dark) {
-      path { fill: #ffffff; }
-    }
-  </style>
-  <path d="M27.562 26L17.17 8.928l2.366-3.888L17.828 4L16 7.005L14.17 4l-1.708 1.04l2.366 3.888L4.438 26H2v2h28v-2zM16 10.85L25.22 26H17v-8h-2v8H6.78z" />
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
+  <g fill="none" stroke="currentColor" stroke-dasharray="none"
+    stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-opacity="1"
+    stroke-width="16">
+    <circle cx="208" cy="48.004" r="32.004"></circle>
+    <path
+      d="M 226.27213,74.276705 A 112.01361,112.01361 0 0 1 195.13671,217.67055 112.01361,112.01361 0 0 1 48.774885,207.20976 112.01361,112.01361 0 0 1 38.349122,60.84543 112.01361,112.01361 0 0 1 181.75042,29.744337"></path>
+    <path
+      d="M 219.63599,191.62385 A 112.01361,112.01361 0 0 0 127.86254,144.01566 112.01361,112.01361 0 0 0 36.197622,191.83249"></path>
+  </g>
 </svg>

@@ -2,6 +2,19 @@ import type { RouteRecordRaw } from 'vue-router/auto'
 import { createRouter, createWebHashHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
 
+declare module 'vue-router' {
+  interface RouteMeta {
+    /**
+     * 页面标题
+     */
+    title?: string
+    /**
+     * 页面描述
+     */
+    describe?: string
+  }
+}
+
 function recursiveLayouts(route: RouteRecordRaw): RouteRecordRaw {
   if (route.children) {
     for (let i = 0; i < route.children.length; i++)
@@ -24,6 +37,12 @@ const router = createRouter({
       return recursiveLayouts(route)
     })
   },
+})
+
+router.afterEach((to) => {
+  let title = to.meta.title
+  title = title ? `${import.meta.env.VITE_APP_TITLE}-${title}` : import.meta.env.VITE_APP_TITLE
+  setTitle(title)
 })
 
 export default router
