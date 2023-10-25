@@ -3,14 +3,13 @@
   "private": true,
   "packageManager": "pnpm@8.9.2",
   "scripts": {
-    "dev": "vite --port 3344 --open",
+    "dev": "vite --port 3344 --open --host",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "vue-tsc --noEmit",
     "up": "npx taze major -I",
-    "cz": "czg",
-    "postinstall": "simple-git-hooks",
+    "postinstall": "npx simple-git-hooks",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "dependencies": {
@@ -28,17 +27,15 @@
     "@unocss/reset": "^0.57.1",
     "@vitejs/plugin-vue": "^4.4.0",
     "conventional-changelog-cli": "^4.1.0",
-    "czg": "^1.7.1",
     "eslint": "^8.52.0",
     "lint-staged": "^15.0.2",
-    "sass": "^1.69.4",
-    "simple-git-hooks": "^2.9.0",
     "typescript": "^5.2.2",
     "unocss": "^0.57.1",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
     "unplugin-vue-router": "^0.7.0",
     "vite": "^4.5.0",
+    "vite-plugin-qrcode": "^0.2.2",
     "vite-plugin-vue-layouts": "^0.8.0",
     "vue-tsc": "^1.8.20"
   },
@@ -47,7 +44,7 @@
     "commit-msg": "node scripts/verifyCommit.mjs"
   },
   "lint-staged": {
-    "*": "eslint --fix --ignore-pattern *.scss"
+    "*": "eslint --fix --ignore-pattern *.css"
   },
   "eslintConfig": {
     "extends": [

@@ -7,7 +7,7 @@ import router from './router'
 import App from './App.vue'
 
 import 'virtual:uno.css'
-import './styles/main.scss'
+import './styles/main.css'
 
 const app = createApp(App)
 app.use(store)

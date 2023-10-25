@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
+import { qrcode } from 'vite-plugin-qrcode'
 
 export default defineConfig({
   resolve: {
@@ -39,5 +40,8 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
     Unocss(),
+
+    // https://github.com/svitejs/vite-plugin-qrcode
+    qrcode({ filter: url => url !== 'http://192.168.218.250:3344/' }),
   ],
 })
