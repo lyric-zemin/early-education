@@ -1,0 +1,19 @@
+{
+  "cSpell.words": [
+    "antfu",
+    "Attributify",
+    "composables",
+    "iconify",
+    "ofetch",
+    "taze",
+    "typecheck",
+    "Unocss",
+    "unplugin",
+    "Vite"
+  ],
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "vue-router"
+  ]
+}
