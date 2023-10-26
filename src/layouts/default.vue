@@ -3,7 +3,7 @@ defineOptions({ name: 'DefaultLayout' })
 </script>
 
 <template>
-  <main flex="~ col" h-screen overflow-hidden>
+  <main h-screen overflow-hidden>
     <router-view v-slot="{ Component }">
       <transition name="main" mode="out-in" appear>
         <component :is="Component" />
