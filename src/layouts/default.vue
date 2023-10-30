@@ -1,10 +1,16 @@
 <script setup lang="ts">
 defineOptions({ name: 'DefaultLayout' })
+
+// 竖屏
+const isPortrait = useMediaQuery('(orientation: portrait)')
 </script>
 
 <template>
   <main h-screen overflow-hidden>
-    <router-view v-slot="{ Component }">
+    <div v-if="isPortrait" position-absolute bottom-0 left-0 right-0 top-0 flex-center bg-blue text-white>
+      横屏体验更好哦~
+    </div>
+    <router-view v-else v-slot="{ Component }" class="content">
       <transition name="main" mode="out-in" appear>
         <component :is="Component" />
       </transition>
