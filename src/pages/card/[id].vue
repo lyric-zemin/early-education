@@ -3,28 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import { EffectCards } from 'swiper/modules'
 import 'swiper/css/effect-cards'
-
-import IDog from '~/assets/images/dog.png'
-import ICat from '~/assets/images/cat.png'
-import IHippo from '~/assets/images/hippo.png'
+import { useDeck } from '~/stores/deck'
 
 defineOptions({ name: 'CardDetail' })
 definePage({ name: 'CardDetail', meta: { title: '卡片页' } })
 
-const Animals = [
-  {
-    name: '狗 🐕',
-    img: IDog,
-  },
-  {
-    name: '猫 🐱',
-    img: ICat,
-  },
-  {
-    name: '河马',
-    img: IHippo,
-  },
-]
+const { deck } = useDeck()
+const { params } = useRoute<'CardDetail'>()
+const Animals = deck.get(params.id) ?? []
 </script>
 
 <template>
@@ -48,7 +34,7 @@ const Animals = [
           flex="~ col justify-between"
           :class="[isActive ? 'bg-amber' : 'bg-blue']"
         >
-          <img :src="animal.img" object-cover h="4/5">
+          <img :src="animal.src" object-cover h="4/5">
           <p p-2 flex="~ justify-between items-center">
             <span>{{ animal.name }}</span>
             <i

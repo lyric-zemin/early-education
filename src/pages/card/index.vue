@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
+import { useDeck } from '~/stores/deck'
 
 defineOptions({ name: 'Card' })
 definePage({ name: 'Card', meta: { title: '卡片' } })
 
+const { deck } = useDeck()
 const { width } = useWindowSize()
 const slideWidth = computed(() => width.value - 200 - 40 + 20)
+const groups = computed(() => [...deck.keys()])
 </script>
 
 <template>
@@ -20,7 +23,7 @@ const slideWidth = computed(() => width.value - 200 - 40 + 20)
       :cards-effect="{ slideShadows: true }"
       class="h-full w-full"
     >
-      <SwiperSlide v-for="i of 3" :key="i" v-slot="{ isActive }">
+      <SwiperSlide v-for="(group, i) of groups" :key="group" v-slot="{ isActive }">
         <div
           position-relative h-full text-white
         >
@@ -32,7 +35,9 @@ const slideWidth = computed(() => width.value - 200 - 40 + 20)
               h-full flex-center rounded shadow-lg duration-150
               :class="[i % 2 ? 'bg-amber' : 'bg-blue', { 'saturate-10': !isActive }]"
             >
-              Slide {{ i }}
+              <RouterLink :to="`/card/${group}`">
+                {{ group }}
+              </RouterLink>
             </div>
           </div>
         </div>

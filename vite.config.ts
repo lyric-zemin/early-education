@@ -8,7 +8,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import { qrcode } from 'vite-plugin-qrcode'
-import Image from 'unplugin-vue-auto-img/vite'
+
+// import Image from 'unplugin-vue-auto-img/vite'
 
 export default defineConfig({
   resolve: {
@@ -29,7 +30,7 @@ export default defineConfig({
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
-      imports: ['vue', '@vueuse/core', VueRouterAutoImports],
+      imports: ['vue', '@vueuse/core', VueRouterAutoImports, 'pinia'],
       dirs: ['./src/composables'],
       dts: 'src/types/auto-imports.d.ts',
       vueTemplate: true,
@@ -46,6 +47,6 @@ export default defineConfig({
     qrcode({ filter: url => url !== 'http://192.168.218.250:3344/' }),
 
     // https://github.com/lyric-zemin/unplugin-vue-auto-img
-    Image({ ns: 'I', dts: 'src/types/auto-import-image.d.ts' }),
+    // Image({ ns: 'I', dts: 'src/types/auto-import-image.d.ts' }),
   ],
 })
